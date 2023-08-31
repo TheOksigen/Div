@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<title>Document</title>
+</head>
+
+<body>
+	<input type="text" placeholder="name"><br />
+	<input type="text" placeholder="model"><br />
+	<input type="text" placeholder="engine"><br />
+	<input type="text" placeholder="color">
+	<button onclick="ok()">OK</button>
+	<div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;"></div>
+	<script>
+		const div = document.querySelector("div")
+		const inp = document.querySelectorAll("input")
+		let cars = [
+			{ name: "Toyota", model: "Supra", engine: "3.0", color: "red" },
+			{ name: "BMW", model: "328", engine: "4.4", color: "black" },
+			{ name: "Nissan", model: "sunny", engine: "1.3", color: "white" },
+			{ name: "Nissan", model: "R34", engine: "3.0", color: "violet" },
+			{ name: "Ford", model: "Mustang", engine: "5.0", color: "blue" },
+			{ name: "Dogge", model: "Challenger", engine: "7.2", color: "green" },
+			{ name: "Mercedes", model: "S-500", engine: "4.7", color: "green" }
+		]
+
+
+		let ok = () => {
+			cars.push({
+				name: inp[0].value,
+				model: inp[1].value,
+				engine: inp[2].value,
+				color: inp[3].value
+			})
+			show()
+		}
+
+		let show = () => {
+			div.innerHTML = ""
+			for (let i = 0; i < cars.length; i++) {
+				div.innerHTML += `<div class="card" style="width: 18rem;">
+			<div class="card-body">
+				<h5 class="card-title">${cars[i].name}, ${cars[i].model}</h5>
+				<h6 class="card-subtitle mb-2 text-body-secondary">${cars[i].engine} L</h6>
+				<p class="card-text" style="color: ${cars[i].color};">Color: ${cars[i].color}</p>
+				<a href="#" class="card-link">Satin al</a>
+				<a href="#" class="card-link">Apar Tulla</a>
+				</div>
+				</div>`
+			}
+		}
+		show()
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
